@@ -1,0 +1,27 @@
+﻿body {
+    width: 400px; 
+    min-height: 100px;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.user-img {
+    width: 16px; 
+    height: 16px; 
+    border-radius: 50%
+}
+
+.navbar-header {
+    display: inline-block
+}
+
+.navbar-right {
+    float: right; 
+    margin-top: 10px
+}
+
+.ng-hide {
+    display: none !important;
+}

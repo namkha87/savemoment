@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html ng-app="saveAMomentApp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Save a moment</title>
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div ng-controller="HomeController as vm" ng-csp="" ng-cloak>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header" style="display: inline-block">
+                    <a class="navbar-brand" href="#">Save Moment</a>
+                </div>
+                <div class="navbar-right" ng-show="vm.hasAccess Token === undefined || vm.hasAccess Token === null">
+                    <button ng-click="vm.login()" ng-show="vm.hasAccessToken === false" type="button" class="btn btn-primary btn-sm">
+                        Login
+                    </button>
+                    <div class="btn-group" ng-show="vm.user">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <img class="user-img" ng-src="{{vm.user.picture}}" />
+                            {{vm.user.name}}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                            <li><a ng-click="vm.logOut()">Log out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <script src="lib/jquery-1.9.1.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+
+    <script src="lib/angular.js"></script>
+    <script src="youtubeapi/youtube.js"></script>
+    <script src="app.js"></script>
+    <script src="youtubeService.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

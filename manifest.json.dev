@@ -1,0 +1,89 @@
+﻿{
+    "manifest_version": 2,
+    "name": "Save a moment",
+    "description": "Let users save favorite moments, start and stop points, in a YouTube playlist while watching any video",
+    "version": "1.0",
+    "icons": {
+        "16": "images/16.png",
+        "48": "images/48.png",
+        "128": "images/128.png"
+    },
+
+    "page_action": {
+        "default_icon": {
+            "19": "images/19.png",
+            "38": "images/48.png"
+        },
+        "default_title": "Save a moment",
+        "default_popup": "/app/popup.html"
+    },
+    "background": {
+        "page": "/app/background.html",
+        "presistent": "false"
+    },
+    "content_scripts": [
+        {
+            "matches": [ "*://*/*" ],
+            "all_frames": true,
+            "run_at": "document_start",
+            "js": [
+                "config/config.js",
+
+                "lib/numeral.min.js",
+                "lib/moment.min.js",
+                "lib/fermata.js",
+                "lib/tagger.js",
+                "lib/jsonToDOM.js",
+                "lib/lodash.js",
+
+                "helpers/utilities.js"
+            ]
+        },
+        {
+            "matches": [ "*://*/*" ],
+            "all_frames": true,
+            "run_at": "document_start",
+            "js": [
+                "preload.js"
+            ]
+        },
+        {
+            "matches": [ "https://www.youtube.com/*" ],
+            "all_frames": true,
+            "run_at": "document_start",
+            "js": [
+                "widgets/youtube/save_a_moment.js"
+            ],
+            "css": [
+                "styles/save_a_moment.css"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+       "images/play.png"
+    ],
+
+    "permissions": [
+        "identity",
+        "tabs",
+        "storage",
+        "https://accounts.google.com/o/oauth2/revoke",
+        "http://www.youtube.com/*",
+        "https://www.youtube.com/*",
+        "https://gdata.youtube.com/*",
+        "https://www.googleapis.com/auth/youtubepartner",
+        "https://www.googleapis.com/auth/youtube",
+        "https://www.googleapis.com/auth/plus.me",
+        "http://www.videobar.tm/*",
+        "http://local.mya.tm/*"
+    ],
+    "oauth2": {
+        "client_id": "962799441153-0290c788jooihldhg1ucckav4s8fiskl.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/youtubepartner",
+            "https://www.googleapis.com/auth/youtube",
+            "https://www.googleapis.com/auth/userinfo.email",
+            "https://www.googleapis.com/auth/plus.me"
+        ]
+    }
+}

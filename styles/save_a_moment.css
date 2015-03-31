@@ -1,0 +1,365 @@
+﻿#save_moment_popup {
+    position: absolute;
+    top: 27px;
+    left: 0px;
+    padding: 0;
+    z-index: 1999999997;
+    background: #fff;
+    border: 1px solid #d3d3d3;
+    outline: none;
+    overflow: visible;
+    padding: 0;
+    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 2px 4px rgba(0,0,0,.2);
+    box-shadow: 0 2px 4px rgba(0,0,0,.2);
+    min-width: 250px;
+    display: none;
+}
+
+    #save_moment_popup > h3 {
+        display: block !important;
+        color: #333 !important;
+        font-size: 13px !important;
+        font-weight: bold !important;
+        padding: 15px 15px 5px !important;
+        margin: 0px !important;
+    }
+
+    #save_moment_popup .save_moment_list_search {
+        position: relative;
+        padding: 10px 15px;
+    }
+
+        #save_moment_popup input[type=text] {
+            padding: 5px 10px 6px 10px;
+            -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,.05);
+            -moz-box-shadow: inset 0 0 1px rgba(0,0,0,.05);
+            box-shadow: inset 0 0 1px rgba(0,0,0,.05);
+            border: 1px solid #d3d3d3;
+            color: #333;
+        }
+            #save_moment_popup input[type=text][disabled] {
+                opacity: .4;
+                filter: alpha(opacity=40);
+                background: inherit;
+            }
+        #save_moment_popup .save_moment_list_search input[type=text] {
+            padding: 5px 0 6px 20px;
+        }
+
+        #save_moment_popup .save_moment_list_search .playlist-status:hover {
+            margin-right: 0;
+            vertical-align: middle;
+            background: no-repeat url(//s.ytimg.com/yts/imgbin/www-hitchhiker-2x-vflaP6W4O.webp) -98px -66px;
+            width: 24px;
+            height: 21px;
+        }
+
+        #save_moment_popup .save_moment_list_search .search-icon {
+            position: absolute;
+            top: 17px;
+            left: 18px;
+            opacity: .5;
+            filter: alpha(opacity=50);
+            background: no-repeat url(//s.ytimg.com/yts/imgbin/www-hitchhiker-2x-vflaP6W4O.webp) -28px -196px;
+            -webkit-background-size: 994px 620px;
+            -o-background-size: 994px 620px;
+            background-size: 994px 620px;
+            width: 14px;
+            height: 14px;
+        }
+
+    #save_moment_popup #save_moment_list_wrapper {
+        margin: 0px;
+    }
+
+        #save_moment_popup #save_moment_list_wrapper.disabled {
+            opacity: 0.4
+        }
+
+        #save_moment_popup #save_moment_list_wrapper .loading {
+            padding-left: 20px;
+        }
+
+        #save_moment_popup #save_moment_list_wrapper ul {
+            margin: 0px;
+            outline: none;
+            max-height: 200px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+            #save_moment_popup #save_moment_list_wrapper ul li {
+                position: relative;
+                display: block;
+                padding: 0 10px;
+                line-height: 25px;
+                color: #333;
+                white-space: nowrap;
+                cursor: pointer;
+            }
+
+        #save_moment_popup #save_moment_list_wrapper li {
+            position: relative;
+            display: block;
+            padding: 0 10px;
+            line-height: 25px;
+            color: #333;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+            #save_moment_popup #save_moment_list_wrapper li:hover {
+                background: #eee;
+            }
+
+            #save_moment_popup #save_moment_list_wrapper.disabled li:hover {
+                background: #fff
+            }
+
+        #save_moment_popup #save_moment_list_wrapper li .playlist-status {
+            display: inline-block;
+            vertical-align: middle;
+            background: url('chrome-extension://__MSG_@@extension_id__/images/play.png') no-repeat;
+            background-size: 14px 14px;
+            width: 15px;
+            height: 15px;
+            text-decoration: none;
+            position: absolute;
+            left: 15px;
+            top:7px;
+            opacity: .3;
+        }
+
+            #save_moment_popup #save_moment_list_wrapper li .playlist-status:hover {
+                opacity: 1
+            }
+
+        #save_moment_popup #save_moment_list_wrapper .playlist-name {
+            display: block;
+            vertical-align: middle;
+            line-height: 21px;
+            max-width: 190px;
+            overflow: hidden;
+            white-space: nowrap;
+            word-wrap: normal;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            margin-left: 25px;
+            padding: 4px 0;
+        }
+
+        #save_moment_popup #save_moment_list_wrapper li .yt-sprite {
+            position: absolute;
+            right: 15px;
+            top: 5px;
+            opacity: .3;
+            filter: alpha(opacity=30);
+        }
+
+        #save_moment_popup #save_moment_list_wrapper li .private-icon {
+            background: no-repeat url(//s.ytimg.com/yts/imgbin/www-hitchhiker-2x-vflaP6W4O.webp) -245px -87px;
+            -webkit-background-size: 497px 310px;
+            -o-background-size: 497px 310px;
+            background-size: 497px 310px;
+            width: 16px;
+            height: 16px;
+        }
+
+        #save_moment_popup #save_moment_list_wrapper li .public-icon {
+            background: no-repeat url(//s.ytimg.com/yts/imgbin/www-hitchhiker-2x-vflaP6W4O.webp) -481px -109px;
+            -webkit-background-size: 497px 310px;
+            -o-background-size: 497px 310px;
+            background-size: 497px 310px;
+            width: 16px;
+            height: 16px;
+        }
+
+        #save_moment_popup #save_moment_list_wrapper li .unlisted-icon {
+            background: no-repeat url(//s.ytimg.com/yts/imgbin/www-hitchhiker-2x-vflaP6W4O.webp) -60px -203px;
+            -webkit-background-size: 497px 310px;
+            -o-background-size: 497px 310px;
+            background-size: 497px 310px;
+            width: 16px;
+            height: 16px;
+        }
+
+    #save_moment_popup #save_moment_list_wrapper {
+        width: 100%;
+        max-height: 245px;
+        padding-bottom: 10px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        border-bottom: 1px solid #ccc;
+    }
+
+    #save_moment_popup #save_moment_add_new_playlist {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 5px 0 5px 16px;
+        margin: 10px 0;
+        color: #333;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+        
+        #save_moment_popup #save_moment_add_new_playlist[disabled] {
+            opacity: 0.4;
+        }
+
+        #save_moment_popup #save_moment_add_new_playlist:hover {
+            background: #eee;
+        }
+
+        #save_moment_popup #save_moment_add_new_playlist[disabled]:hover {
+            background: #fff;
+        }
+
+#save_moment_create_playlist_section {
+    padding: 15px;
+}
+
+    #save_moment_create_playlist_section button {
+        border: 1px solid #d3d3d3 !important;
+        background: #f8f8f8 !important;
+        position: relative !important;
+        border-radius: 2px;
+    }
+
+    #save_moment_create_playlist_section .yt-uix-button-default:hover, 
+    #save_moment_create_playlist_section .yt-uix-button-text:hover {
+        border-color: #c6c6c6 !important;
+        background: #f0f0f0 !important;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.10) !important;
+    }
+
+    #save_moment_create_playlist_section .yt-uix-button-primary, 
+    #save_moment_create_playlist_section .yt-uix-button-primary[disabled], 
+    #save_moment_create_playlist_section .yt-uix-button-primary[disabled]:hover, 
+    #save_moment_create_playlist_section .yt-uix-button-primary[disabled]:active, 
+    #save_moment_create_playlist_section .yt-uix-button-primary[disabled]:focus {
+        border-color: #167ac6 !important;
+        background: #167ac6 !important;
+        color: #fff !important;
+        float: right;
+    }
+
+    #save_moment_create_playlist_section .yt-uix-button[disabled], 
+    #save_moment_create_playlist_section .yt-uix-button[disabled]:hover, 
+    #save_moment_create_playlist_section .yt-uix-button[disabled]:active, 
+    #save_moment_create_playlist_section .yt-uix-button[disabled]:focus {
+        opacity: .5;
+        filter: alpha(opacity=50);
+        cursor: auto;
+        box-shadow: none;
+    }
+
+#save_moment_create_playlist_section.hid {
+    display: none;
+}
+
+#save_moment_create_playlist_section button #save_moment_privacy_list_menu {
+    top: 27px;
+    left: 0px;
+}
+
+    #save_moment_create_playlist_section button #save_moment_privacy_list_menu li .yt-uix-button-menu-item {
+        font-weight: normal !important;
+        text-align: left;
+    }
+
+    #save_moment_create_playlist_section button #save_moment_privacy_list_menu li.selected .yt-uix-button-menu-item {
+        font-weight: bold !important;
+    }
+
+.save_moment_pick_a_moment_wrapper {
+    padding: 0 16px;
+}
+
+.range_slider {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 35px;
+    padding: 0;
+}
+
+.range_slider * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.range_slider input[type=range] {
+    pointer-events: none;
+    position: absolute;
+    overflow: visible;
+    left: 0;
+    top: 0;
+    width: 100%;
+    outline: none;
+    height: 26px;
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+    /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+}
+
+.range_slider input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    border: none;
+    background-color: #a9acb1;
+    border-radius: 15px;
+}
+
+.range_slider input[type=range]::-webkit-slider-thumb {
+    pointer-events: all;
+    position: relative;
+    z-index: 100;
+    outline: 0;
+    -webkit-appearance: none;
+    
+    background-color: #fff;
+    border-radius: 100%;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+
+    height: 20px;
+    width: 20px;
+    margin-top: -8px;
+}
+
+.range_slider input[type=range]:focus::-webkit-slider-thumb {
+    border: 1px solid #aaa;
+}
+
+.range_slider input[type=range]:focus {
+    outline: none;
+}
+
+.range_slider_value input[type=text]{
+    width: 75px !important;
+}
+
+.range_slider input[type=range][disabled] {
+    opacity: 0.4
+}
+
+#save_moment_start_at_value {
+    float: left;
+}
+
+
+#save_moment_end_at_value {
+    float: right;
+}
+
+#save_moment_popup #save_moment_block_ui {
+    background: white;
+    top: 0; right: 0; bottom: 0; left: 0;
+    opacity: 0.4;
+    position: absolute;
+    z-index: 9999;
+}
