@@ -67,7 +67,7 @@ GoogleResource.prototype.isAccessTokenExpired = function() {
 
 
 var YoutubeResource = function(config) {
-    //this.key = "2hmUX7u5ZL7qNrTPj1XVFHs6"; //DEV KEY
+    //this.key = "iN5yOdRBjIe5Y-gYQuK3oJJ7"; //DEV KEY
     this.key = "5PvM48nDE61c_hDOt40sjo0U"; // PROD KEY
     var queryType = "https://www.googleapis.com/youtube/v3/channels";  // default query type
     

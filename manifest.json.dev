@@ -60,7 +60,8 @@
         }
     ],
     "web_accessible_resources": [
-       "images/play.png"
+        "images/play.png",
+        "images/stop.png"
     ],
 
     "permissions": [
@@ -78,7 +79,7 @@
         "http://local.mya.tm/*"
     ],
     "oauth2": {
-        "client_id": "962799441153-0290c788jooihldhg1ucckav4s8fiskl.apps.googleusercontent.com",
+        "client_id": "962799441153-qkoqto7k4pj57nng1h35uk9tiqc3rv5e.apps.googleusercontent.com",
         "scopes": [
             "https://www.googleapis.com/auth/youtubepartner",
             "https://www.googleapis.com/auth/youtube",

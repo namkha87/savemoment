@@ -44,7 +44,7 @@
                         login().then(function () {
                             vm.authorizedApiHandler[apiName](request, sender, sendResponse);
                         }, function () {
-                            sendResponse({ success: false });
+                            sendResponse({ success: false, error: "Cannot login to your Google account." });
                         });
                     }
                     else {
@@ -79,9 +79,9 @@
 
         function handleGetUserInfo(request, sender, sendResponse) {
             youtubeService.getUserInfo().then(function (data) {
-                sendResponse({ data: data });
+                sendResponse({ success: true, data: data });
             }, function (result) {
-                sendResponse({ data: { error: "Cannot load data: " + result.msg } });
+                sendResponse({ success: false, error: result.msg });
             });
         }
 
@@ -100,7 +100,15 @@
 
                 sendResponse({ data: playlists });
             }, function (result) {
-                sendResponse({ data: { error: "Cannot load data: " + result.msg } });
+                var error = result.msg;
+                if (result.status == 404) {
+                    error = "Please setup your channel to continue.";
+                }
+                else if (result.status == 403) {
+                    error = "Your channel has been closed or suspended.";
+                }
+
+                sendResponse({ success: false, error: error });
             });
         }
 
@@ -118,7 +126,7 @@
             youtubeService.addPlayList(input).then(function (playlistData) {
                 sendResponse({ success: true, data: playlistData });
             }, function (result) {
-                sendResponse({ success: false, data: { error: "Cannot add playlist:" + result.msg } });
+                sendResponse({ success: false, error: "Cannot add playlist:" + result.msg });
             });
         }
 
@@ -145,7 +153,7 @@
             youtubeService.addPlaylistItem(videoInput).then(function (playlistitemData) {
                 sendResponse({ success: true, data: playlistitemData });
             }, function (result) {
-                sendResponse({ success: false, data: { error: "Cannot add playlist item:" + result.msg } });
+                sendResponse({ success: false, error: "Cannot add playlist item:" + result.msg });
             });
         }
 
@@ -153,7 +161,7 @@
             youtubeService.removePlaylistItem(request.id).then(function (data) {
                 sendResponse({ success: true, data: data });
             }, function (result) {
-                sendResponse({ success: false, data: { error: "Cannot add playlist item:" + result.msg } });
+                sendResponse({ success: false, error: "Cannot add playlist item:" + result.msg });
             });
         }
 

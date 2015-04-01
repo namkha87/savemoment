@@ -21,7 +21,6 @@
         new_playlist_name_selector: '#save_moment_new_play_plist_name',
         add_new_playlist_button_selector: '#save_moment_add_new_playlist_button',
         privacy_list_button_selector: '#save_moment_privacy_list_button',
-        popup_search_selector: '#save_moment_popup_search',
         moment_start_at_value_selector: '#save_moment_start_at_value',
         moment_start_at_selector: '#save_moment_start_at',
         moment_end_at_value_selector: '#save_moment_end_at_value',
@@ -41,22 +40,322 @@
             }
 
             self.save_a_moment_dom = jsonToDOM([
-                'div', {
+                "div",
+                {
                     id: self.container.slice(1),
-                    class: 'yt-uix-menu'
+                    class: "yt-uix-menu"
                 },
-                    ['div', {
-                        class: 'yt-uix-menu-trigger',
-                    },
-                        ['button', {
-                            class: 'yt-uix-button yt-uix-button-size-default yt-uix-button-opacity yt-uix-button-has-icon no-icon-markup yt-uix-videoactionmenu-button addto-button yt-uix-tooltip yt-uix-button-toggled',
-                            id: "save_moment_button",
-                            'data-tooltip-text': 'Save your favorite moment',
-                            style: 'margin-right: 10px'
-                        }, ['span', {}, 'Save moment']
+                    [
+                        "div",
+                        {
+                            class: "yt-uix-menu-trigger",
+                        },
+                        [
+                            "button",
+                            {
+                                class: "yt-uix-button yt-uix-button-size-default yt-uix-button-opacity yt-uix-button-has-icon no-icon-markup yt-uix-videoactionmenu-button addto-button yt-uix-tooltip yt-uix-button-toggled",
+                                id: "save_moment_button",
+                                "data-tooltip-text": "Save your favorite moment",
+                                style: "margin-right: 10px"
+                            },
+                            ["span", {}, "Save moment"]
                         ]
                     ],
-                    ["div", { "id": "save_moment_popup" }, ["h3", {}, "Pick a moment"], ["div", { "class": "save_moment_pick_a_moment_wrapper" }, ["section", { "class": "range_slider" }, ["input", { "id": "save_moment_start_at", "type": "range", "min": "0" }, ""], ["input", { "id": "save_moment_end_at", "type": "range", "min": "0" }, ""]], ["section", { "class": "range_slider_value" }, ["input", { "id": "save_moment_start_at_value", "type": "text", "value": "0" }, ""], ["input", { "id": "save_moment_end_at_value", "type": "text", "value": "0" }, ""]]], ["h3", { "style": "clear: both" }, "Add to"], ["div", { "class": "save_moment_list_search" }, ["span", { "class": " yt-uix-form-input-container yt-uix-form-input-text-container  yt-uix-form-input-fluid-container" }, ["span", { "class": " yt-uix-form-input-fluid" }, ["input", { "id": "save_moment_popup_search", "class": "yt-uix-form-input-text", "type": "text", "maxlength": "60", "title": "Enter a playlist name to search for" }, ""]]], ["span", { "class": "search-icon yt-sprite" }, ""]], ["div", { "id": "save_moment_list_wrapper" }, ["ul", { "role": "menu", "tabindex": "0", "id": "play_list_container", "class": "yt-uix-kbd-nav yt-uix-kbd-nav-list" }, ""]], ["button", { "id": "save_moment_add_new_playlist" }, "Create new play list"], ["div", { "id": "save_moment_create_playlist_section", "style": "display: none" }, ["div", { "style": "margin-bottom: 15px" }, ["span", { "class": "title-input-container yt-uix-form-input-container yt-uix-form-input-text-container  yt-uix-form-input-fluid-container" }, ["span", { "class": " yt-uix-form-input-fluid" }, ["input", { "id": "save_moment_new_play_plist_name", "class": "yt-uix-form-input-text title-input", "name": "n", "type": "text", "maxlength": "150", "title": "Enter a title for a new playlist" }, ""]]]], ["div", { "class": "clearfix" }, ["div", { "class": "create-playlist-buttons" }, ["button", { "id": "save_moment_add_new_playlist_button", "class": "yt-uix-button yt-uix-button-size-default yt-uix-button-primary disabled", "type": "button", "disabled": "" }, ["span", { "class": "yt-uix-button-content disabled" }, "Create"]]], ["input", { "class": "privacy-value-input", "type": "hidden", "name": "p", "value": "public" }, ""], ["button", { "id": "save_moment_privacy_list_button", "aria-expanded": "false", "type": "button", "class": "yt-uix-button yt-uix-button-default yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup", "aria-haspopup": "true", "data-button-menu-indicate-selected": "true", "data-button-has-sibling-menu": "true" }, ["span", { "class": "yt-uix-button-content" }, "Public"], ["span", { "class": "yt-uix-button-arrow yt-sprite" }, ""], ["div", { "id": "save_moment_privacy_list_menu", "class": "yt-uix-button-menu yt-uix-button-menu-default", "style": "display: none" }, ["ul", { "class": "create_playlist_widget_privacy_menu yt-uix-kbd-nav yt-uix-kbd-nav-list", "tabindex": "0" }, ["li", { "role": "menuitem", "data-value": "public", "data-text": "Public", "class": "privacy-option selected" }, ["span", { "class": "yt-uix-button-menu-item" }, "Public"]], ["li", { "role": "menuitem", "data-value": "unlisted", "data-text": "Unlisted", "class": "privacy-option" }, ["span", { "class": "yt-uix-button-menu-item" }, "Unlisted"]], ["li", { "role": "menuitem", "data-value": "private", "data-text": "Private", "class": "privacy-option" }, ["span", { "class": "yt-uix-button-menu-item" }, "Private"]]]]]]]]
+                    [
+                        "div",
+                        {
+                            "id": "save_moment_popup"
+                        },
+                        [
+                            "h3",
+                            {
+                                "style": "text-align: center"
+                            },
+                            "Pick a moment"
+                        ],
+                        [
+                            "div",
+                            {
+                                "class": "save_moment_pick_a_moment_wrapper"
+                            },
+                            [
+                                "section",
+                                {
+                                    "class": "range_slider_value"
+                                },
+                                [
+                                    "label",
+                                    {
+                                        "id": "save_moment_start_at_value",
+                                    },
+                                    "0"
+                                ],
+                                [
+                                    "label",
+                                    {
+                                        "id": "save_moment_end_at_value",
+                                    },
+                                    "0"
+                                ]
+                            ],
+                            [
+                                "section",
+                                {
+                                    "class": "range_slider"
+                                },
+                                [
+                                    "input",
+                                    {
+                                        "id": "save_moment_start_at",
+                                        "type": "range",
+                                        "min": "0"
+                                    },
+                                    ""
+                                ],
+                                [
+                                    "input",
+                                    {
+                                        "id": "save_moment_end_at",
+                                        "type": "range",
+                                        "min": "0"
+                                    },
+                                    ""
+                                ]
+                            ],
+                            [
+                                "section",
+                                {
+                                    "class": "save_moment_player"
+                                },
+                                [
+                                    "button",
+                                    {
+                                        "id": "save_moment_btn_play",
+                                    },
+                                    [
+                                        "span",
+                                        {
+                                            "class": "icon",
+                                        },
+                                        ""
+                                    ],
+                                    [
+                                        "span",
+                                        {
+                                            "class": "play",
+                                        },
+                                        "Play"
+                                    ],
+                                    [
+                                        "span",
+                                        {
+                                            "class": "stop",
+                                        },
+                                        "Stop"
+                                    ]
+                                ]
+                            ]
+                        ],
+                        [
+                            "p",
+                            {
+                                class: "add_to_playlist_title",
+                            },
+                            "Add selected moment to a playlist"
+                        ],
+                        [
+                            "div",
+                            {
+                                "id": "save_moment_list_wrapper"
+                            },
+                            [
+                                "ul",
+                                {
+                                    "role": "menu",
+                                    "tabindex": "0",
+                                    "id": "play_list_container",
+                                    "class": "yt-uix-kbd-nav yt-uix-kbd-nav-list"
+                                },
+                                ""
+                            ]
+                        ],
+                        [
+                            "button",
+                            {
+                                "id": "save_moment_add_new_playlist"
+                            },
+                            [
+                                "span",
+                                {
+                                },
+                                "+ Add playlist"
+                            ]
+                        ],
+                        [
+                            "div",
+                            {
+                                "id": "save_moment_create_playlist_section",
+                                "style": "display: none"
+                            },
+                            [
+                                "div",
+                                {
+                                    "style": "margin-bottom: 15px"
+                                },
+                                [
+                                    "span",
+                                    {
+                                        "class": "title-input-container yt-uix-form-input-container yt-uix-form-input-text-container  yt-uix-form-input-fluid-container"
+                                    },
+                                    [
+                                        "span",
+                                        {
+                                            "class": " yt-uix-form-input-fluid"
+                                        },
+                                        [
+                                            "input",
+                                            {
+                                                "id": "save_moment_new_play_plist_name",
+                                                "class": "yt-uix-form-input-text title-input",
+                                                "name": "n",
+                                                "type": "text",
+                                                "maxlength": "150",
+                                                "title": "Enter a title for a new playlist"
+                                            },
+                                            ""
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            [
+                                "div",
+                                {
+                                    "class": "clearfix"
+                                },
+                                [
+                                    "div",
+                                    {
+                                        "class": "create-playlist-buttons"
+                                    },
+                                    [
+                                        "button",
+                                        {
+                                            "id": "save_moment_add_new_playlist_button",
+                                            "class": "yt-uix-button yt-uix-button-size-default yt-uix-button-primary disabled",
+                                            "type": "button",
+                                            "disabled": ""
+                                        },
+                                        [
+                                            "span",
+                                            {
+                                                "class": "yt-uix-button-content disabled"
+                                            },
+                                            "Create"
+                                        ]
+                                    ]
+                                ],
+                                [
+                                    "input",
+                                    {
+                                        "class": "privacy-value-input",
+                                        "type": "hidden",
+                                        "name": "p",
+                                        "value": "public"
+                                    },
+                                    ""
+                                ],
+                                [
+                                    "button",
+                                    {
+                                        "id": "save_moment_privacy_list_button",
+                                        "aria-expanded": "false",
+                                        "type": "button",
+                                        "class": "yt-uix-button yt-uix-button-default yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup",
+                                        "aria-haspopup": "true",
+                                        "data-button-menu-indicate-selected": "true",
+                                        "data-button-has-sibling-menu": "true"
+                                    },
+                                    [
+                                        "span",
+                                        {
+                                            "class": "yt-uix-button-content"
+                                        },
+                                        "Public"
+                                    ],
+                                    [
+                                        "span",
+                                        {
+                                            "class": "yt-uix-button-arrow yt-sprite"
+                                        },
+                                        ""
+                                    ],
+                                    [
+                                        "div",
+                                        {
+                                            "id": "save_moment_privacy_list_menu",
+                                            "class": "yt-uix-button-menu yt-uix-button-menu-default",
+                                            "style": "display: none"
+                                        },
+                                        [
+                                            "ul",
+                                            {
+                                                "class": "create_playlist_widget_privacy_menu yt-uix-kbd-nav yt-uix-kbd-nav-list",
+                                                "tabindex": "0"
+                                            },
+                                            [
+                                                "li",
+                                                {
+                                                    "role": "menuitem",
+                                                    "data-value": "public",
+                                                    "data-text": "Public",
+                                                    "class": "privacy-option selected"
+                                                },
+                                                [
+                                                    "span",
+                                                    {
+                                                        "class": "yt-uix-button-menu-item"
+                                                    },
+                                                    "Public"
+                                                ]
+                                            ],
+                                            [
+                                                "li",
+                                                {
+                                                    "role": "menuitem",
+                                                    "data-value": "unlisted",
+                                                    "data-text": "Unlisted",
+                                                    "class": "privacy-option"
+                                                },
+                                                [
+                                                    "span",
+                                                    {
+                                                        "class": "yt-uix-button-menu-item"
+                                                    },
+                                                    "Unlisted"
+                                                ]
+                                            ],
+                                            [
+                                                "li",
+                                                {
+                                                    "role": "menuitem",
+                                                    "data-value": "private",
+                                                    "data-text": "Private",
+                                                    "class": "privacy-option"
+                                                },
+                                                [
+                                                    "span",
+                                                    {
+                                                        "class": "yt-uix-button-menu-item"
+                                                    },
+                                                    "Private"
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
             ], document, {});
 
             self.listen_events();
@@ -78,12 +377,14 @@
         select_playlist: function (evt) {
             var self = this,
                 playlistId = evt.currentTarget.getAttribute("playlist-id"),
+                playlistTitle = evt.currentTarget.getAttribute("playlist-title"),
                 moment_start_at = util.$(self.moment_start_at_selector, self.save_a_moment_dom),
                 moment_end_at = util.$(self.moment_end_at_selector, self.save_a_moment_dom);
 
             var input = {
                 videoId: util.get_video_id_from_location(),
                 playlistId: playlistId,
+                playlistTitle: playlistTitle,
                 // will convert to iso8601 duration string in background
                 startAt: parseInt(moment_start_at.value),
                 endAt: parseInt(moment_end_at.value)
@@ -100,6 +401,7 @@
             chrome.runtime.sendMessage({ action: "addPlaylistItem", data: input }, function (response) {
                 if (response.success) {
                     self.close_save_popup();
+                    self.show_notification("Added to playlist " + input.playlistTitle);
                 }
 
                 self.enable_ui(true);
@@ -118,9 +420,16 @@
                 "span", { class: "loading" }, "Loading..."
             ], document, {}));
 
-            chrome.runtime.sendMessage({ action: "getPlaylists", data: input}, function (response) {
+            chrome.runtime.sendMessage({ action: "getPlaylists", data: input }, function (response) {
+                var error = "";
+
                 if (!response.data) {
-                    self.close_save_popup();
+                    error = response.error ? response.error : "Cannot load your playlists.";
+
+                    wrapper.replace(jsonToDOM([
+                        "span", { class: "loading" }, error
+                    ], document, {}));
+                    //self.close_save_popup();
                     return;
                 }
 
@@ -141,6 +450,13 @@
                     }
                 ];
 
+            if (data.length == 0) {
+                wrapper.replace(jsonToDOM([
+               "span", { class: "loading" }, "No playlist found."
+                ], document, {}));
+                return;
+            }
+
             data.forEach(function (pl) {
                 var domObj = [
                     "li",
@@ -148,7 +464,8 @@
                         "class": "yt-uix-button-menu-item",
                         "title": "Click to add the moment to " + pl.title,
                         "click": self.select_playlist,
-                        "playlist-id": pl.id
+                        "playlist-id": pl.id,
+                        "playlist-title": pl.title
                     }, [
                         "a",
                         {
@@ -168,8 +485,6 @@
                         "span",
                         {
                             "class": "playlist-name"
-                            //"click": self.select_playlist,
-                            //"playlist-id": pl.id
                         },
                         pl.title
                     ], [
@@ -234,14 +549,10 @@
                 moment_end_at = util.$(self.moment_end_at_selector, self.save_a_moment_dom);
 
             util.$(self.popup_selector, self.save_a_moment_dom).show_block();
-            util.$(self.popup_search_selector, self.save_a_moment_dom).focus();
 
             // hide add new section by default
             util.$(self.create_playlist_section_selector, self.save_a_moment_dom).hide();
             util.$(self.add_new_playlist_selector, self.save_a_moment_dom).show_inline_block();
-
-            // empty search text box
-            util.$(self.popup_search_selector, self.save_a_moment_dom).value = "";
 
             // empty playlist name text box
             util.$(self.new_playlist_name_selector, self.save_a_moment_dom).value = "";
@@ -256,7 +567,10 @@
             moment_end_at.setAttribute("max", videoPlayer.duration);
             self.set_moment_start_at(0);
             self.set_moment_end_at(videoPlayer.duration);
-            
+
+            // set play button to "play"
+            self.stop_playing();
+
             self.enable_ui(true);
         },
 
@@ -265,7 +579,7 @@
                 txt_start_val = util.$(self.moment_start_at_value_selector, self.save_a_moment_dom),
                 moment_start_at = util.$(self.moment_start_at_selector, self.save_a_moment_dom);
 
-            txt_start_val.value = seconds_to_text(value);
+            txt_start_val.innerText = seconds_to_text(value);
             moment_start_at.value = value;
         },
 
@@ -274,7 +588,7 @@
                 txt_end_val = util.$(self.moment_end_at_value_selector, self.save_a_moment_dom),
                 moment_end_at = util.$(self.moment_end_at_selector, self.save_a_moment_dom);
 
-            txt_end_val.value = seconds_to_text(value);
+            txt_end_val.innerText = seconds_to_text(value);
             moment_end_at.value = value;
         },
 
@@ -320,6 +634,54 @@
             btnText.innerText = item.getAttribute("data-text");
 
             self.close_privacy_menu();
+        },
+
+        show_notification: function (text, timeout) {
+            var self = this,
+                wrapper = util.$("#appbar-main-guide-notification-container"),
+                dom = [
+                    "div",
+                    {
+                        "id": "heartbeat_save_a_moment_popup",
+                        "class": "appbar-guide-notification ",
+                        "role": "alert"
+                    },
+                    [
+                        "span",
+                        {
+                            "class": "appbar-guide-notification-content-wrapper yt-valign"
+                        },
+                        [
+                            "span",
+                            {
+                                "class": "appbar-guide-notification-icon yt-sprite"
+                            },
+                            ""
+                        ],
+                        [
+                            "span",
+                            {
+                                "class": "appbar-guide-notification-text-content"
+                            },
+                            text
+                        ]
+                    ]
+                ],
+                body = util.$('body')[0];
+
+            body.add_class("show-guide-button-notification");
+            if (wrapper) {
+                wrapper.replace(jsonToDOM(dom, document, {}));
+            }
+
+            if (self._notification_timeout) {
+                clearTimeout(self._notification_timeout);
+            }
+
+            timeout = timeout ? timeout : 3000;
+            self._notification_timeout = setTimeout(function () {
+                body.remove_class("show-guide-button-notification");
+            }, timeout);
         },
 
         render: function () {
@@ -370,27 +732,6 @@
                 }
             });
 
-            // search playlist
-            util.$(self.popup_search_selector, self.save_a_moment_dom).addEventListener('keyup', function () {
-                if (!self.playlists) {
-                    return;
-                }
-
-                var keyword = this.value.toLowerCase(),
-                    filtered = [];
-
-                if (self.playlists) {
-                    filtered = self.playlists.filter(function (ele) {
-                        if (ele.title.toLowerCase().indexOf(keyword) >= 0) {
-                            return true;
-                        }
-                        return false;
-                    });
-
-                    self.render_playlist(filtered);
-                }
-            });
-
             // user click add button -> create new playlist also add the video to it
             util.$(self.add_new_playlist_button_selector, self.save_a_moment_dom).addEventListener('click', function (evt) {
                 console.log(evt);
@@ -413,6 +754,7 @@
                     if (response.success) {
                         var videoInput = {
                             videoId: util.get_video_id_from_location(),
+                            playlistTitle: txtName.value,
                             playlistId: response.data.id,
                             // will convert to iso8601 duration string in background
                             startAt: parseInt(moment_start_at.value),
@@ -442,7 +784,7 @@
                     end_at = parseInt(moment_end_at.value),
                     delta = Math.ceil(videoPlayer.duration * self.range_slider_thumb_width / moment_start_at.clientWidth);
 
-                txt_start_val.value = seconds_to_text(start_at);
+                txt_start_val.innerText = seconds_to_text(start_at);
                 if (end_at <= start_at + delta) {
                     end_at = start_at + delta > videoPlayer.duration ?
                         videoPlayer.duration : start_at + delta;
@@ -450,28 +792,9 @@
                 }
                 // seek to new position
                 videoPlayer.currentTime = start_at;
-            });
-
-            util.$(self.moment_start_at_value_selector, self.save_a_moment_dom).addEventListener('change', function () {
-                var videoPlayer = self.get_video_player(),
-                    txt_start_val = util.$(self.moment_start_at_value_selector, self.save_a_moment_dom),
-                    moment_start_at = util.$(self.moment_start_at_selector, self.save_a_moment_dom),
-                    txt_end_val = util.$(self.moment_end_at_value_selector, self.save_a_moment_dom),
-                    moment_end_at = util.$(self.moment_end_at_selector, self.save_a_moment_dom),
-                    start_at = self.text_to_seconds(txt_start_val.value),
-                    end_at = parseInt(moment_end_at.value),
-                    delta = Math.ceil(videoPlayer.duration * self.range_slider_thumb_width / moment_start_at.clientWidth);
-
-                start_at = start_at >= 0 ? start_at : 0;
-                start_at = start_at < videoPlayer.duration ? start_at : videoPlayer.duration;
-                self.set_moment_start_at(start_at);
-                if (end_at <= start_at + delta) {
-                    end_at = start_at + delta > videoPlayer.duration ?
-                        videoPlayer.duration : start_at + delta;
-                    self.set_moment_end_at(end_at);
+                if (self.is_playing) {
+                    self.stop_playing(true);
                 }
-                // seek to new position
-                videoPlayer.currentTime = start_at;
             });
 
             util.$(self.moment_end_at_selector, self.save_a_moment_dom).addEventListener('change', function () {
@@ -484,7 +807,7 @@
                     end_at = parseInt(moment_end_at.value),
                     delta = Math.ceil(videoPlayer.duration * self.range_slider_thumb_width / moment_end_at.clientWidth);
 
-                txt_end_val.value = seconds_to_text(end_at);
+                txt_end_val.innerText = seconds_to_text(end_at);
                 if (end_at <= start_at + delta) {
                     start_at = end_at - delta < 0 ? 0 : end_at - delta;
                     self.set_moment_start_at(start_at);
@@ -492,28 +815,60 @@
 
                 // seek to new position
                 videoPlayer.currentTime = end_at;
+                if (self.is_playing) {
+                    self.stop_playing(true);
+                }
             });
 
-            util.$(self.moment_end_at_value_selector, self.save_a_moment_dom).addEventListener('change', function () {
-                var videoPlayer = self.get_video_player(),
-                    txt_start_val = util.$(self.moment_start_at_value_selector, self.save_a_moment_dom),
+            util.$("#save_moment_btn_play", self.save_a_moment_dom).addEventListener('click', function () {
+                var btn_play = util.$("#save_moment_btn_play", self.save_a_moment_dom),
+                    videoPlayer = self.get_video_player(),
                     moment_start_at = util.$(self.moment_start_at_selector, self.save_a_moment_dom),
-                    txt_end_val = util.$(self.moment_end_at_value_selector, self.save_a_moment_dom),
                     moment_end_at = util.$(self.moment_end_at_selector, self.save_a_moment_dom),
                     start_at = parseInt(moment_start_at.value),
-                    end_at = self.text_to_seconds(txt_end_val.value),
-                    delta = Math.ceil(videoPlayer.duration * self.range_slider_thumb_width / moment_end_at.clientWidth);
+                    end_at = parseInt(moment_end_at.value);
 
-                end_at = end_at >= 0 ? end_at : 0;
-                end_at = end_at < videoPlayer.duration ? end_at : videoPlayer.duration;
-                self.set_moment_end_at(end_at);
-                if (end_at <= start_at + delta) {
-                    start_at = end_at - delta < 0 ? 0 : end_at - delta;
-                    self.set_moment_start_at(start_at);
+                if (!self.is_playing) {
+                    self.is_playing = true;
+                    btn_play.add_class("playing");
+                    if (self.play_timeout) {
+                        clearTimeout(self.play_timeout);
+                    }
+
+                    // seek to new position
+                    videoPlayer.currentTime = start_at;
+                    if (videoPlayer.paused) {
+                        videoPlayer.play();
+                    }
+                    
+                    self.play_timeout = setInterval(function () {
+                        if (videoPlayer.currentTime >= end_at) {
+                            self.stop_playing(true);
+                            videoPlayer.currentTime = end_at;
+                            clearTimeout(self.play_timeout);
+                        }
+                    }, 500);
                 }
-                // seek to new position
-                videoPlayer.currentTime = end_at;
+                else {
+                    self.stop_playing(true);
+                }
             });
+        },
+
+        stop_playing: function(pause){
+            var self = this,
+                btn_play = util.$("#save_moment_btn_play", self.save_a_moment_dom),
+                videoPlayer = self.get_video_player();
+
+            if (self.play_timeout) {
+                clearTimeout(self.play_timeout);
+            }
+
+            self.is_playing = false;
+            if (pause) {
+                videoPlayer.pause();
+            }
+            btn_play.remove_class("playing");
         },
 
         settings_changed: function (change) {
@@ -523,7 +878,7 @@
 
     widgets.push(widget);
 
-    function text_to_seconds (text) {
+    function text_to_seconds(text) {
         var h = 0,
             m = 0,
             s = 0,
@@ -544,6 +899,19 @@
         return h * 3600 + m * 60 + s;
     }
 
+    function pad_num2(text) {
+        if (text === null || text === undefined) {
+            return "";
+        }
+
+        text = text.toString();
+        if (text.length < 2) {
+            text = "0" + text;
+        }
+
+        return text;
+    }
+
     function seconds_to_text(seconds) {
         var h = 0,
             m = 0,
@@ -557,6 +925,7 @@
         m = Math.floor((seconds - h * 3600) / 60);
         s = Math.floor(seconds - h * 3600 - m * 60);
 
-        return h + ":" + m + ":" + s;
+        return (h > 0 ? pad_num2(h) + ":" : "") +
+            pad_num2(m) + ":" + pad_num2(s);
     }
 })();

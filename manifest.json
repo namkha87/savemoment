@@ -60,7 +60,8 @@
         }
     ],
     "web_accessible_resources": [
-       "images/play.png"
+        "images/play.png",
+        "images/stop.png"
     ],
 
     "permissions": [
