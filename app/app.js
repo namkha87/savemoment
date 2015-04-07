@@ -1,3 +1,3 @@
 ﻿(function () {
-    var app = angular.module("saveAMomentApp", [])
+    var app = angular.module("saveAMomentApp", []);
 }());
